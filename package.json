@@ -3,13 +3,25 @@
   "version": "1.0.0",
   "description": "This is a website about MBTI test, people who find that could get a new life by tested",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "express": "^4.21.0"
+  },
+  "dependencies": {
+    "eslint": "^9.11.1",
+    "http-proxy-middleware": "^3.0.2",
+    "js-yaml": "^4.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "log4js": "^6.9.1",
+    "mysql2": "^3.11.3",
+    "nodemailer": "^6.9.15",
+    "sequelize": "^6.37.4"
   }
 }
