@@ -1,8 +1,8 @@
 import Router from 'express';
 // import authMiddleware from '../../src/Middleaware/token.js';
-import tokenHooks from '../utils/jwt/tokenHooks.js';
-import { resMessage } from '../utils/resMessage.js';
-import UserController from '../Controller/user/index.js';
+import tokenHooks from '../../utils/jwt/tokenHooks.js';
+import { resMessage } from '../../utils/resMessage.js';
+import UserController from '../../Controller/user/index.js';
 const router = Router();
 
 // 用户相关路由

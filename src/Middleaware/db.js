@@ -1,12 +1,15 @@
 import { Sequelize } from "sequelize";
 import { my_db_config,sequelize } from "../config/db_config.js";  // 修改了导入方式
 import User from "../Model/User/user.js";  // 导入用户模型
+import MbtiDetail from "../Model/MbtiMsg/mbtiMsg.js";
 
 // 创建 sequelize 实例
 
 // 同步模型到数据库
 const syncModel = async () => {
   await User.sync({ force: false });  // `force: true` 会重新创建表，确保数据丢失风险
+  // await saveDataToDb();
+  await MbtiDetail.sync({ force: false });
   console.log("syncModel");
 };
 

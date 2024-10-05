@@ -1,12 +1,16 @@
 import Router from 'express';
-import userRoutes from './user.js';
+// 用户相关路由
+import userRoutes from '../Router/user/user.js';
+// 拦截器 拦截token
 import authRoute from '../../src/Middleaware/authRoute.js';
-// import authMiddleware from '../../src/Middleaware/token.js';
-// import { resMessage } from '../utils/resMessage.js';
-// import 
+// 验证token拦截器
+// mbti_test
+import mbtiDetailRoutes from '../Router/mbtiTest/index.js';
 const router = Router();
 // user
 router.use('/user', userRoutes);
+// mbti_detail
+router.use('/detail', mbtiDetailRoutes);
 // 验证token
-router.use(authRoute);
+// router.use(authRoute);
 export default router;
