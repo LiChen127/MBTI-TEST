@@ -9,7 +9,7 @@
     "dev": "nodemon index.js",
     "format": "prettier --write \"src/**/*.js\""
   },
-  "lint-staged":{
+  "lint-staged": {
     "*.js": "prettier --write"
   },
   "husky": {
@@ -28,6 +28,7 @@
     "prettier": "^3.3.3"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "eslint": "^9.11.1",
     "http-proxy-middleware": "^3.0.2",
     "js-yaml": "^4.1.0",
