@@ -107,3 +107,10 @@
 [2024-10-05T16:10:59.361] [DEBUG] default - GET /api/detail/getDetailLike/I?authorization=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImthbnkiLCJwYXNzd29yZCI6ImthbnkxMjM0NSIsImlhdCI6MTcyODExNTU3NiwiZXhwIjoxNzI4NzIwMzc2fQ.z7Y_oDN-SlMoMpHa3DHtw1uo-o50zrcAFH5XW4Jj3Us
 [2024-10-05T16:11:25.186] [DEBUG] default - GET /api/detail/getDetailLike/I
 [2024-10-05T16:11:35.469] [DEBUG] default - GET /api/detail/getDetailsBypage?page=1&limit=3
+[2024-10-05T17:37:09.213] [DEBUG] default - GET /api/queAndAnswer/getAllQA
+[2024-10-05T17:37:24.851] [DEBUG] default - GET /api/queAndAnswer/getAllQA
+[2024-10-05T17:38:26.352] [DEBUG] default - GET /api/queAndAnswer/getQAById/2
+[2024-10-05T17:39:08.880] [DEBUG] default - GET /api/queAndAnswer/getQAByPage?page=3&limit=10
+[2024-10-05T17:39:17.770] [DEBUG] default - GET /api/queAndAnswer/getQAByPage?page=3&limit=10
+[2024-10-05T17:39:47.584] [DEBUG] default - GET /api/queAndAnswer/getQAByPage?page=3&limit=10
+[2024-10-05T17:40:04.775] [DEBUG] default - GET /api/queAndAnswer/getQAByPage?page=3&limit=10

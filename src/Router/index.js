@@ -5,6 +5,8 @@ import userRoutes from '../Router/user/user.js';
 import authMiddleware from '../Middleaware/token.js';
 // mbti_test
 import mbtiDetailRoutes from '../Router/mbtiTest/index.js';
+// Q & A
+import questionAndAnswerRoutes from '../Router/QuestionAndAnswer/index.js';
 const router = Router();
 // user
 router.use('/user', userRoutes);
@@ -12,5 +14,6 @@ router.use('/user', userRoutes);
 router.use(authMiddleware);
 // mbti_detail
 router.use('/detail', mbtiDetailRoutes);
-// 验证token
+// Q & A
+router.use('/queAndAnswer', questionAndAnswerRoutes);
 export default router;
