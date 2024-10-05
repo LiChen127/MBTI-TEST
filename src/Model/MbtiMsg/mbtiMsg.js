@@ -4,57 +4,61 @@ import { Sequelize, DataTypes } from 'sequelize';
 import { sequelize } from '../../config/db_config.js';
 
 // 定义模型
-const MbtiDetail = sequelize.define('mbti_detail', {
-  id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    autoIncrement: true,
-    primaryKey: true,
+const MbtiDetail = sequelize.define(
+  'mbti_detail',
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    type: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    from_type: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    advantages_title: {
+      type: DataTypes.JSON,
+      allowNull: true,
+    },
+    advantages_detail: {
+      type: DataTypes.JSON,
+      allowNull: true,
+    },
+    disadvantages_title: {
+      type: DataTypes.JSON,
+      allowNull: true,
+    },
+    disadvantages_detail: {
+      type: DataTypes.JSON,
+      allowNull: true,
+    },
+    way_to_resolve_problem: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    career_advice: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    initial_advice: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    development_advice: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
   },
-  type: {
-    type: DataTypes.STRING,
-    allowNull: false,
+  {
+    timestamps: false,
+    freezeTableName: true,
   },
-  from_type: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  advantages_title: {
-    type: DataTypes.JSON,
-    allowNull: true,
-  },
-  advantages_detail: {
-    type: DataTypes.JSON,
-    allowNull: true,
-  },
-  disadvantages_title: {
-    type: DataTypes.JSON,
-    allowNull: true,
-  },
-  disadvantages_detail: {
-    type: DataTypes.JSON,
-    allowNull: true,
-  },
-  way_to_resolve_problem: {
-    type: DataTypes.TEXT,
-    allowNull: false,
-  },
-  career_advice: {
-    type: DataTypes.TEXT,
-    allowNull: false,
-  },
-  initial_advice: {
-    type: DataTypes.TEXT,
-    allowNull: false,
-  },
-  development_advice: {
-    type: DataTypes.TEXT,
-    allowNull: false,
-  }
-}, {
-  timestamps: false,
-  freezeTableName: true,
-});
+);
 
 // const saveDataToDb = async () => {
 //   try {

@@ -12,7 +12,11 @@ import jsonwebtoken from 'jsonwebtoken';
  * @param { string } secret
  */
 // const secretKey = 'mbit_test_website_key';
-const generateToken = (user, secretKey = 'mbit_test_website_key', expiresIn = '7d') => {
+const generateToken = (
+  user,
+  secretKey = 'mbit_test_website_key',
+  expiresIn = '7d',
+) => {
   return jsonwebtoken.sign(user, secretKey, { expiresIn });
 };
 const verifyToken = (token) => {

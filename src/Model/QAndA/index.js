@@ -1,29 +1,33 @@
 import { DataTypes, Sequelize } from 'sequelize';
-import { sequelize } from '../../config/db_config.js'; 
+import { sequelize } from '../../config/db_config.js';
 // import fs from 'fs';
 // let jsonData = JSON.parse(fs.readFileSync("../../../mbti_detail/qAndA.json"), 'utf8');
-const QuestionAndAnswer = sequelize.define('question_and_answer', {
-  id: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
+const QuestionAndAnswer = sequelize.define(
+  'question_and_answer',
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    question: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    answer1: {
+      type: DataTypes.JSON,
+      allowNull: false,
+    },
+    answer2: {
+      type: DataTypes.JSON,
+      allowNull: false,
+    },
   },
-  question: {
-    type: DataTypes.STRING(100),
-    allowNull: false
+  {
+    timestamps: false,
+    freezeTableName: true,
   },
-  answer1: {
-    type: DataTypes.JSON,
-    allowNull: false
-  },
-  answer2: {
-    type: DataTypes.JSON,
-    allowNull: false
-  }
-}, {
-  timestamps: false,
-  freezeTableName: true,
-})
+);
 // jsonData = jsonData.map(item => {
 //   return {
 //     id: item.id,

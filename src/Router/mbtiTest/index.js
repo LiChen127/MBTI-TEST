@@ -11,10 +11,10 @@ router.get('/getAllDetails', async (req, res) => {
   } else {
     resMessage(res, 500, '查询失败');
   }
-})
+});
 
 // 根据type查询,type为params
-router.get('/getDetailByType/:type',async  (req, res) => {
+router.get('/getDetailByType/:type', async (req, res) => {
   const { type } = req.params;
   const detail = await MbtiDetailController.getDetailByType(type);
   if (detail) {
@@ -22,7 +22,7 @@ router.get('/getDetailByType/:type',async  (req, res) => {
   } else {
     resMessage(res, 500, '查询失败');
   }
-})
+});
 
 // 模糊查询
 router.get('/getDetailLike/:search', async (req, res) => {
@@ -33,17 +33,20 @@ router.get('/getDetailLike/:search', async (req, res) => {
   } else {
     resMessage(res, 500, '查询失败');
   }
-})
+});
 
 // 分页查询
 router.get('/getDetailsBypage', async (req, res) => {
   const { page, limit } = req.query;
-  const detail = await MbtiDetailController.getDetailsBypage(Number(page), Number(limit));
+  const detail = await MbtiDetailController.getDetailsBypage(
+    Number(page),
+    Number(limit),
+  );
   if (detail) {
     resMessage(res, 200, detail);
   } else {
     resMessage(res, 500, '查询失败');
   }
-})
+});
 
 export default router;

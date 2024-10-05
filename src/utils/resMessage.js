@@ -4,6 +4,6 @@
 export const resMessage = (res, status, data) => {
   res.send({
     status,
-    data
+    data,
   });
 };

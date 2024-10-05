@@ -14,9 +14,6 @@ router.post('/login', (req, res) => {
 
 // 注册
 router.post('/register', (req, res) => {
-  // UserController.register;
-  // res.send()
-  // resMessage(res, 200, '注册成功');
   UserController.register(req, res);
 });
 

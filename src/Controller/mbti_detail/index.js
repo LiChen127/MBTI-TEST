@@ -1,6 +1,6 @@
-import MbtiDetail from "../../Model/MbtiMsg/mbtiMsg.js";
-import { resMessage } from "../../utils/resMessage.js";
-import { Op } from "sequelize";
+import MbtiDetail from '../../Model/MbtiMsg/mbtiMsg.js';
+import { resMessage } from '../../utils/resMessage.js';
+import { Op } from 'sequelize';
 
 class MbtiDetailController {
   // getAll
@@ -20,8 +20,8 @@ class MbtiDetailController {
     try {
       return await MbtiDetail.findOne({
         where: {
-          type
-        }
+          type,
+        },
       });
     } catch (error) {
       console.log(error);
@@ -35,9 +35,9 @@ class MbtiDetailController {
       const details = await MbtiDetail.findAll({
         where: {
           type: {
-            [Op.like]: `%${search}%`
-          }
-        }
+            [Op.like]: `%${search}%`,
+          },
+        },
       });
       return details;
     } catch (error) {
@@ -48,10 +48,10 @@ class MbtiDetailController {
   // 分页查询
   static async getDetailsBypage(page, limit) {
     try {
-      const offset = (page - 1)* limit;
+      const offset = (page - 1) * limit;
       const details = await MbtiDetail.findAndCountAll({
         offset,
-        limit
+        limit,
       });
       return details;
     } catch (error) {
