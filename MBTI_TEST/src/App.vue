@@ -1,7 +1,8 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div></div>
+  <Router-view />
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>

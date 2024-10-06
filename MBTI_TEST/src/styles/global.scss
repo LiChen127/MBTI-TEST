@@ -1,0 +1,22 @@
+// 基础样式配置
+
+// 常用变量
+$primary-color: #409EFF;
+$secondary-color: #fff;
+$text-color: #333;
+$border-radius: 4px;
+$box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1); // 默认阴影
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;  
+}
+
+ul, ol {
+  list-style: none;
+}
