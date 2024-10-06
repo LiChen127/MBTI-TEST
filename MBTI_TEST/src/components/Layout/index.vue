@@ -8,6 +8,7 @@ import Header from './Header.vue';
     <Header />
   </div>
   <div class="c-layout-main">
+    <!-- 主体内容 -->
     <slot></slot>
   </div>
  </main>
@@ -17,18 +18,28 @@ import Header from './Header.vue';
 main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  height: 2110px;
+  min-width: 1000px;
+  position: relative;
 
   .c-layout-header {
-    max-height: 20%;
+    max-height: 100px;
     width: 100%;
     margin: 0 auto;
-    min-width: 860px;
-    // font-family: Georgia, 'Times New Roman', Times, serif;
+    min-width: 900px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    background-color: #fff;
   }
   .c-layout-main {
-    width: 80%;
-  } 
+    padding-top: 90px; /* 根据Header的高度调整 */
+    height: calc(2110px - 10px); /* 减去Header的高度 */
+    width: 100%;
+    margin: 0 auto;
+    background-color: rgb(235, 243, 242);
+  }
 }
 </style>

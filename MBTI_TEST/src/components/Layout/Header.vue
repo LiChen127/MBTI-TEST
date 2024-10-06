@@ -1,11 +1,13 @@
 <script setup lang='ts'>
 import { ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
-import { useStore } from '@/store';
+// import { useStore } from '@/store/index';
+const router = useRouter();
 // 定义checks
 const checks = reactive([
-  { name: '人格介绍', path: '/' , isChecked: false},
-  { name: '人格分析', path: '/detail', isChecked: false },
+  { name: '首页', path: '/' , isChecked: false},
+  { name: '人格类型', path: '/detail', isChecked: false },
+  { name: '文章博客', path: '/blog', isChecked: false },
   { name: '人格测试', path: '/question', isChecked: false },
 ])
 // 控制check 状态
@@ -14,22 +16,27 @@ const checks = reactive([
 const clickToPage = (item) => {;
   item.isChecked = !item.isChecked;
 }
+// 登录页面
+const checkToLogin = () => {
+  router.push('/user/login');
+}
 </script>
 
 <template>
  <div class="c-header">
   <div class="c-header-left">
-    <div class="c-header-left-logo">MBTI-TEST</div>
+    <div class="c-header-left-logo">Analytical MBTI</div>
   </div>
   <div class="c-header-main">
     <div class="c-header-main-check">
       <router-link v-for="(item, index) in checks" :key="index" :to="item.path" class="c-header-main-check-item" @click="clickToPage(item)">
+        <!-- <div class="c-header-main-check-item-line" v-if="item.isChecked"></div> -->
         <span class="c-header-main-check-item-text">{{ item.name }}</span>
       </router-link>
     </div>
   </div>
   <div class="c-header-right">
-    <div class="c-header-right-login">登录</div>
+    <div class="c-header-right-login" @click="checkToLogin">登录</div>
   </div>
  </div>
 </template>
@@ -37,17 +44,19 @@ const clickToPage = (item) => {;
 <style lang='scss' scoped>
 .c-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
+  width: 100%;
+
   &-left {
-    width: 20%;
-    padding: 20px;
+    min-width: 200px;
+    width: 15%;
     font-size: 25px;
   }
   &-main {
-    padding: 20px;
-    width: 60%;
+    padding: 10px;
+    width: 75%;
     &-check {
       display: flex;
       align-content: center;
@@ -60,17 +69,22 @@ const clickToPage = (item) => {;
         margin: 0 10px;
         color: #3F92F2;
         transition: all 0.3 ease;
+        position: relative;
         &-text {
           font-size: 30px;
         }
         &-text:hover {
           color: rgb(0,172,0);
         }
+        &-line {
+          position: absolute;
+          top: 2px;
+        }
       }
     }
   }
   &-right {
-    width: 20%;
+    width: 10%;
     padding: 20px;
     &-login {
       cursor: pointer;

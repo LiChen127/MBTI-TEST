@@ -5,10 +5,12 @@ const routes = [
   },
   {
     path: '/detail',
+    name: 'Detail',
     component: () => import('@/views/Detail/index.vue'),
   },
   {
     path: '/user',
+    name: 'User',
     component: () => import('@/views/User/index.vue'),
   },
   {
@@ -17,11 +19,18 @@ const routes = [
   },
   {
     path: '/own',
+    name: 'Own',
     component: () => import('@/views/Own/index.vue'),
   },
   {
     path: '/question',
+    name: 'Test',
     component: () => import('@/views/Test/index.vue'),
+  },
+  {
+    path: '/blog',
+    name: 'Blog',
+    component: () => import('@/views/Blog/index.vue'),
   },
   // 登录注册模块
   // @wig: 精简到插槽实现
@@ -60,6 +69,10 @@ const routes = [
     path: '/:pathMatch(.*)*',
     redirect: '/404',
   },
+  // 文章博客模块
+  // {
+  //   path: '/blog/detail/:id'
+  // }
 ];
 
 export default routes;
