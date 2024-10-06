@@ -56,6 +56,10 @@ const handleKnowMore = () => {
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 40px;
+    transition: all 0.3s;
+    &:hover {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
 
     &-content {
       display: flex;
