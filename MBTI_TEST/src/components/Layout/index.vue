@@ -19,7 +19,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 2110px;
+  height: 2500px;
   min-width: 1000px;
   position: relative;
 
@@ -36,7 +36,7 @@ main {
   }
   .c-layout-main {
     padding-top: 90px; /* 根据Header的高度调整 */
-    height: calc(2110px - 10px); /* 减去Header的高度 */
+    height: calc(2500px - 10px); /* 减去Header的高度 */
     width: 100%;
     margin: 0 auto;
     background-color: rgb(235, 243, 242);
