@@ -34,14 +34,14 @@ const routes = [
   },
   // 登录注册模块
   // @wig: 精简到插槽实现
-  {
-    path: '/user/login',
-    component: () => import('@/views/User/Login/index.vue'),
-  },
-  {
-    path: '/user/register',
-    component: () => import('@/views/User/Register/index.vue'),
-  },
+  // {
+  //   path: '/user/login',
+  //   component: () => import('@/views/User/Login/index.vue'),
+  // },
+  // {
+  //   path: '/user/register',
+  //   component: () => import('@/views/User/Register/index.vue'),
+  // },
   // 人格信息模块
   {
     path: '/detail/:type',

@@ -18,7 +18,7 @@ const clickToPage = (item) => {;
 }
 // 登录页面
 const checkToLogin = () => {
-  router.push('/user/login');
+  router.push('/user');
 }
 </script>
 
