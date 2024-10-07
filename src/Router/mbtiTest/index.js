@@ -5,7 +5,6 @@ const router = Router();
 // 查询所有
 router.get('/getAllDetails', async (req, res) => {
   const details = await MbtiDetailController.getAllDetails();
-  console.log(details);
   if (details) {
     resMessage(res, 200, details);
   } else {
@@ -16,7 +15,16 @@ router.get('/getAllDetails', async (req, res) => {
 // 根据type查询,type为params
 router.get('/getDetailByType/:type', async (req, res) => {
   const { type } = req.params;
-  const detail = await MbtiDetailController.getDetailByType(type);
+  let detail = await MbtiDetailController.getDetailByType(type);
+  detail.advantages_title = JSON.parse(detail.advantages_title);
+  detail.disadvantages_title = JSON.parse(detail.disadvantages_title);
+  detail.disadvantages_detail = JSON.parse(detail.disadvantages_detail);
+  detail.advantages_detail = JSON.parse(detail.advantages_detail);
+  const formatObj = (obj) => {
+    return Object.entries(obj).map(([title, content]) => ({ title, content }));
+  };
+  detail.advantages_detail = formatObj(detail.advantages_detail);
+  detail.disadvantages_detail = formatObj(detail.disadvantages_detail);
   if (detail) {
     resMessage(res, 200, detail);
   } else {

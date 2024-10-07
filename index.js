@@ -13,7 +13,8 @@ app.use(cors());
 app.use(loggerMiddleware);
 app.use(express.json());
 
-app.use('/api', router);
+// app.use('/api', router);
+app.use('/', router);
 
 const port = 9999;
 app.listen(port, () => {
