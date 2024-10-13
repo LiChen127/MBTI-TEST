@@ -1,7 +1,7 @@
 import request from '../index.js';
 const prefix = '/detail';
 // 查询所有detail
-export const getAllDetail = () => request.get(`/${prefix}/getAllDetails`);
+export const getAllDetail = () => request.get(`${prefix}/getAllDetails`);
 
 // 根据类型查询detail
 export const getDetailByType = (type) =>
