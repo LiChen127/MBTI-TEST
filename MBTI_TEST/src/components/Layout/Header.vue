@@ -1,7 +1,8 @@
 <script setup lang='ts'>
 import { ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
-// import { ElDialog, ElMessage, ElForm } from 'element-plus';
+// import { ElMessage } from 'element-plus';
+import { register, login } from '../../api/user';
 // import { useStore } from '@/store/index';
 const router = useRouter();
 // 定义checks
@@ -12,7 +13,6 @@ const checks = reactive([
   { name: '人格测试', path: '/question', isChecked: false },
 ])
 // 控制check 状态
-// const isChecked = ref(false);
 // 点击跳转
 const clickToPage = (item) => {
   ;
@@ -21,14 +21,38 @@ const clickToPage = (item) => {
 // 登录逻辑
 const dialogVisible = ref(false);
 const userForm = reactive({
-  name: '',
+  username: '',
   password: ''
 })
 const checkToLogin = () => {
   dialogVisible.value = true;
 }
-const handleConfirmUserInfo = () => {
-  console.log(userForm);
+const isRegistered = ref(false);
+// 提交用户信息
+const handleConfirmUserInfo = async () => {
+  if (userForm) {
+    checkIsValidMobile(userForm.username);
+  }
+  if (isRegistered.value) {
+    try {
+      await login(userForm);
+      ElMessage.success('登录成功！');
+    } catch (error) {
+      console.log(error);
+      ElMessage.error('服务端错误');
+    }
+  } else {
+    try {
+      await register(userForm);
+      ElMessage.success('注册成功！');
+    } catch (error) {
+      console.log(error);
+      ElMessage.error('服务端错误');
+    } finally {
+      isRegistered.value = true;
+    }
+  }
+  dialogVisible.value = false;
 }
 // 手机号正则
 const checkIsValidMobile = (mobile) => {
@@ -56,24 +80,24 @@ const checkIsValidMobile = (mobile) => {
     <div class="c-header-right">
       <div class="c-header-right-login" @click="checkToLogin">登录</div>
       <el-dialog 
-          v-model="dialogVisible" 
+          v-model="dialogVisible"
           width="500px" 
           center 
           close-on-press-escape 
           append-to-body
-          align-center>
+        >
         <div class="dialog-line">
-          <span>登录进行MBTI测试</span>
+          <span>{{ isRegistered ? '登录' : '注册'}}进行MBTI测试</span>
           <div style="margin-top: 20px">
             <hr>
           </div>
         </div>
         <div class="user-from">
-          <el-input placeholder="请输入手机号" v-model="userForm.name"></el-input>
+          <el-input placeholder="请输入手机号" v-model="userForm.username"></el-input>
           <el-input placeholder="请输入密码" v-model="userForm.password" type="password"></el-input>
         </div>
         <div class="user-confirm">
-          <el-button type="primary" @click="handleConfirmUserInfo">确定</el-button>
+          <el-button type="primary" @click="handleConfirmUserInfo" :disabled="!userForm.username || !userForm.password ||checkIsValidMobile(userForm.username)">{{ isRegistered ? '登录' : '注册'}}</el-button>
           <el-button @click="dialogVisible = false">取消</el-button>
         </div>
       </el-dialog>
