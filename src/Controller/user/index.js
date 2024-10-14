@@ -24,7 +24,7 @@ class UserController {
       if (user) {
         resMessage(res, 200, user);
       }
-      resMessage.res(res, 500, '服务器错误');
+      resMessage(res, 500, '服务器错误');
     } catch (error) {
       console.error(error);
       resMessage(res, 500, error);
@@ -41,11 +41,12 @@ class UserController {
       });
       if (!user) resMessage(res, 400, '用户不存在');
       // token
-      const token = await tokenHooks.generateToken(req.body);
-      if (!token) {
-        resMessage(res, 400, 'token生成失败');
-      }
-      resMessage(res, 200, { token });
+      // const token = await tokenHooks.generateToken(req.body);
+      // if (!token) {
+      //   resMessage(res, 400, 'token生成失败');
+      // }
+      // resMessage(res, 200, { token });
+      resMessage(res, 200, user);
     } catch (error) {
       console.error(error);
       resMessage(res, 500, error);
