@@ -14,3 +14,4 @@ export const getDetalBysearch = (search) =>
 // 分页查询
 export const getDetailByPage = (page, limit) =>
   request.get(`${prefix}/getDetailByPage`, { query: { page, limit } });
+    
